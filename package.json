@@ -1,0 +1,24 @@
+{
+  "name": "mvc_bartender",
+  "version": "1.0.0",
+  "description": "MVC App Project.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JatJax/mvc_bartender.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JatJax/mvc_bartender/issues"
+  },
+  "homepage": "https://github.com/JatJax/mvc_bartender#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^6.0.4"
+  }
+}
