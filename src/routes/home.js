@@ -1,15 +1,13 @@
-const { Router } = require('express');
 const express = require('express');
-const { remove } = require('../models/Home');
 const homeRouter = express.Router();
 const Home = require('../models/Home');
-
+const path = require('path');
 
 //Gets back all the drinks
 homeRouter.get('/', async (req, res) =>{
     try {
         const drinks = await Home.find();
-        res.json(drinks); 
+        res.sendFile(path.join(__dirname, '../views/index.html')); 
     } catch (error) {
          res.json({ message: error })
     }
@@ -39,4 +37,15 @@ homeRouter.delete('/:drinkId', async (req, res) => {
         res.json({ message: error })
     }
 })
+//Update
+homeRouter.patch('/:drinkId', async (req, res) => {
+    try {
+        const deleteDrink = await Home.remove(req.params.drinkId)
+        res.json(deleteDrink)
+    } catch (error) {
+        res.json({ message: error })
+    }
+})
+
+
 module.exports = homeRouter;
