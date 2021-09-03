@@ -1,5 +1,6 @@
 const { Router } = require('express');
 const express = require('express');
+const { remove } = require('../models/Home');
 const homeRouter = express.Router();
 const Home = require('../models/Home');
 
@@ -30,9 +31,10 @@ homeRouter.get('/:drinkId', (req, res) =>{
     
 });
 //Deletes a Drink
-homeRouter.delete('/:drinkId', (req, res) => {
+homeRouter.delete('/:drinkId', async (req, res) => {
     try {
-        
+        const deleteDrink = await Home.remove(req.params.drinkId)
+        res.json(deleteDrink)
     } catch (error) {
         res.json({ message: error })
     }
